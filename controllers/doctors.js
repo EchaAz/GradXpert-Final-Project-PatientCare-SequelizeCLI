@@ -1,8 +1,6 @@
 const { Doctors } = require('../models');
 const { Op } = require('sequelize');
 
-//Tambahin filter dan sorting, ini untuk main page jadis esuaikan kebutuhannya yang make dimana aja
-// Dokumentasi masukin ke vs code di folder api.md agar tau end pointnya apa sama cara make nya
 exports.getAllDoctors = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;

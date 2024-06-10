@@ -22,18 +22,20 @@ exports.createAppointment = async (req, res) => {
     }
 };
 
-exports.getAppointmentById = async (req, res) => {
+exports.getAllAppointments = async (req, res) => {
     try {
-        const { id } = req.params;
-        const appointment = await Appointments.findByPk(id);
-        if (!appointment) {
-            return res.status(404).json({ error: 'Appointment not found' });
+        const { userId } = req.body;
+        const appointments = await Appointments.findAll({ where: { userId }});
+        if (!appointments.length) {
+            return res.status(404).json({ error: 'No appointments found' });
         }
-        res.status(200).json({ appointment });
+        res.status(200).json({ appointments });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 exports.deleteAppointmentById = async (req, res) => {
     try {

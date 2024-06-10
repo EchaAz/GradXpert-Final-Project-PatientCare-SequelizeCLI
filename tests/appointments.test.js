@@ -5,11 +5,14 @@ process.env.NODE_ENV = 'test'
 const { app } = require('../app');
 
 let authToken;
-
+let authToken2
+;
 beforeAll(async () => {
     await sequelize.authenticate();
     const payload = { userId: 1 };
+    const payload2 = { userId: 2 };
     authToken = jwt.sign(payload, process.env.JWT_SECRET);
+    authToken2 = jwt.sign(payload2, process.env.JWT_SECRET);
 });
 
 describe('POST /api/appointments', () => {
@@ -116,33 +119,24 @@ describe('POST /api/appointments', () => {
     });
 });
 
-describe('GET /api/appointments/:id', () => {
-    it('should get an existing appointment', async () => {
+describe('GET /api/appointments', () => {
+    it('should get all existing appointment', async () => {
         const response = await request(app)
-            .get('/api/appointments/1');
+            .get('/api/appointments')
+            .set('Authorization', `Bearer ${authToken}`);
 
         expect(response.statusCode).toBe(200);
-        expect(response.body).toHaveProperty('appointment');
-        expect(response.body.appointment).toHaveProperty('id');
-        expect(response.body.appointment.id).toBe(1); 
+        expect(response.body).toHaveProperty('appointments');
     });
-
-    it('should return 404 if appointment is missing', async () => {
+    
+    it('should return 404 if there is no appointment', async () => {
         const response = await request(app)
-            .get('/api/appointments/999999');
+            .get('/api/appointments/')
+            .set('Authorization', `Bearer ${authToken2}`);
 
         expect(response.statusCode).toBe(404);
         expect(response.body).toHaveProperty('error');
-        expect(response.body.error).toBe('Appointment not found');
-    });
-
-    it('should return 500 if other error occurs', async () => {
-        const response = await request(app)
-            .get('/api/appointments/99999999999999');
-
-        expect(response.statusCode).toBe(500);
-        expect(response.body).toHaveProperty('error');
-        expect(response.body.error).toBe('Internal Server Error');
+        expect(response.body.error).toBe('No appointments found');
     });
 });
 
