@@ -18,7 +18,6 @@ describe('POST /api/appointments', () => {
             .post('/api/appointments')
             .set('Authorization', `Bearer ${authToken}`)
             .send({
-                userId: 1,
                 doctorId: 1,
                 time: '2025-04-28T12:00:00',
                 description: 'Regular checkup'
@@ -38,7 +37,6 @@ describe('POST /api/appointments', () => {
             .post('/api/appointments')
             .set('Authorization', `Bearer ${authToken}`)
             .send({
-                doctorId: 1,
                 time: '2025-04-28T12:00:00',
                 description: 'Regular checkup'
             });
@@ -52,7 +50,6 @@ describe('POST /api/appointments', () => {
             .post('/api/appointments')
             .set('Authorization', `Bearer ${authToken}`)
             .send({
-                userId: 1,
                 doctorId: 1,
                 time: '2023-04-28T12:00:00',
                 description: 'Regular checkup'
@@ -66,7 +63,6 @@ describe('POST /api/appointments', () => {
         const response = await request(app)
             .post('/api/appointments')
             .send({
-                userId: 1,
                 doctorId: 1,
                 time: '2025-04-28T12:00:00',
                 description: 'Regular checkup'
@@ -81,7 +77,6 @@ describe('POST /api/appointments', () => {
             .post('/api/appointments')
             .set('Authorization', `Bear ${authToken}`)
             .send({
-                userId: 1,
                 doctorId: 1,
                 time: '2025-04-28T12:00:00',
                 description: 'Regular checkup'
@@ -96,7 +91,6 @@ describe('POST /api/appointments', () => {
             .post('/api/appointments')
             .set('Authorization', `Bearer ${authToken}123`)
             .send({
-                userId: 1,
                 doctorId: 1,
                 time: '2025-04-28T12:00:00',
                 description: 'Regular checkup'
@@ -111,8 +105,7 @@ describe('POST /api/appointments', () => {
             .post('/api/appointments')
             .set('Authorization', `Bearer ${authToken}`)
             .send({
-                userId: 100000,
-                doctorId: 1,
+                doctorId: 10000000000000000000,
                 time: '2025-04-28T12:00:00',
                 description: 'Regular checkup'
             });

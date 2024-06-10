@@ -24,7 +24,6 @@ _200 - OK_
 - Body
     ```json
     {
-      "statusCode": 200,
       "doctors": [
         {
         "name": String,
@@ -49,7 +48,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -63,7 +61,6 @@ _200 - OK_
 - Body
     ```json
     {
-      "statusCode": 200,
       "doctors": [
         {
         "name": String,
@@ -88,7 +85,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -103,7 +99,6 @@ _200 - OK_
 - Body
     ```json
     {
-      "statusCode": 200,
       "doctors": [
         {
         "name": String,
@@ -128,7 +123,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -143,7 +137,6 @@ _200 - OK_
 - Body
     ```json
     {
-      "statusCode": 200,
       "doctors": [
         {
         "name": String,
@@ -167,7 +160,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -182,7 +174,6 @@ _200 - OK_
 - Body
     ```json
     {
-      "statusCode": 200,
       "doctors": [
         {
         "name": String,
@@ -206,7 +197,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -221,7 +211,6 @@ _200 - OK_
 - Body
     ```json
     {
-      "statusCode": 200,
       "doctors": [
         {
         "name": String,
@@ -245,7 +234,6 @@ _404 - Not Found_
 - Body
     ```json
     {
-        "statusCode": 404,
         "error": "Doctor not found"
     }
     ```
@@ -254,7 +242,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -279,7 +266,6 @@ _201 - Created_
 - Body
     ```json
     {
-        "statusCode": 201,
         "message": "User created successfully",
         "newUser": {
             "id": integer,
@@ -297,7 +283,6 @@ _400 - Bad Request_
 - Body
     ```json
     {
-        "statusCode": 400,
         "error": "Email already exists"
     }
     ```
@@ -306,7 +291,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -329,17 +313,8 @@ _200 - Ok
 - Body
     ```json
     {
-        "statusCode": 201,
         "message": "User created successfully",
-        "newUser": {
-            "id": integer,
-            "username": string,
-            "email": string,
-            "password": string,
-            "phoneNumber": string,
-            "updatedAt": date,
-            "createdAt": date
-        }
+        
     }
     ```
 
@@ -347,7 +322,6 @@ _400 - Bad Request_
 - Body
     ```json
     {
-        "statusCode": 400,
         "error": "Email already exists"
     }
     ```
@@ -356,7 +330,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -419,7 +392,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -458,7 +430,6 @@ _500 - Internal Server Error_
 - Body
     ```json
     {
-        "statusCode": 500,
         "error": "Internal server error"
     }
     ```
@@ -532,7 +503,6 @@ _200 - Ok
 - Body
     ```json
     {
-        "statusCode": 200,
         "message": "Appointment updated successfully"
     }
     ```
